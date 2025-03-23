@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Feedback</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Give Feedback</h1>
+    
+    <form action="/feedback/submit" method="POST">
+        <input type="hidden" name="student_id" value="<%= student_id %>">
+        <label for="teacher_id">Select Teacher:</label>
+        <select name="teacher_id" required>
+            <% teachers.forEach(teacher => { %>
+                <option value="<%= teacher.id %>"><%= teacher.name %></option>
+            <% }); %>
+        </select>
+        <br><br>
+
+        <!-- Feedback Questions -->
+        <label>Q1: How well does the teacher explain?</label>
+        <input type="number" name="q1" min="1" max="5" required>
+        <br><br>
+
+        <label>Q2: Is the teacher engaging?</label>
+        <input type="number" name="q2" min="1" max="5" required>
+        <br><br>
+
+        <label>Q3: Is the teacher available for doubts?</label>
+        <input type="number" name="q3" min="1" max="5" required>
+        <br><br>
+
+        <label>Q4: How well does the teacher manage time?</label>
+        <input type="number" name="q4" min="1" max="5" required>
+        <br><br>
+
+        <label>Q5: Overall teaching effectiveness?</label>
+        <input type="number" name="q5" min="1" max="5" required>
+        <br><br>
+
+        <label>Suggestions:</label>
+        <textarea name="suggestions"></textarea>
+        <br><br>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+</body>
+</html>

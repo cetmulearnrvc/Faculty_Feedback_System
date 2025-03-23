@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Feedback</title>
+</head>
+<body>
+    <h2>Give Feedback to <%= teacher.name %></h2>
+    <form action="/feedback/submit" method="POST">
+        <input type="hidden" name="teacher_id" value="<%= teacher.id %>">
+        <label for="student_id">Your Student ID:</label>
+        <input type="text" name="student_id" required><br><br>
+
+        <label>Q1: Rate the teaching quality (1-5):</label>
+        <input type="number" name="q1" min="1" max="5" required><br><br>
+
+        <label>Q2: How interactive was the class? (1-5):</label>
+        <input type="number" name="q2" min="1" max="5" required><br><br>
+
+        <label>Q3: Clarity of explanations (1-5):</label>
+        <input type="number" name="q3" min="1" max="5" required><br><br>
+
+        <label>Q4: How engaging was the teaching? (1-5):</label>
+        <input type="number" name="q4" min="1" max="5" required><br><br>
+
+        <label>Q5: Overall satisfaction (1-5):</label>
+        <input type="number" name="q5" min="1" max="5" required><br><br>
+
+        <label>Suggestions:</label><br>
+        <textarea name="suggestions" rows="4" cols="50"></textarea><br><br>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+</body>
+</html>

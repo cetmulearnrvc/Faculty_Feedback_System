@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback List</title>
+</head>
+<body>
+    <h1>Feedback List</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Teacher</th>
+            <th>Subject</th>
+            <th>Feedback</th>
+        </tr>
+        <% feedbacks.forEach(feedback => { %>
+            <tr>
+                <td><%= feedback.id %></td>
+                <td><%= feedback.student_name %></td>
+                <td><%= feedback.teacher_name %></td>
+                <td><%= feedback.subject %></td>
+                <td><%= feedback.feedback %></td>
+            </tr>
+        <% }); %>
+    </table>
+
+    <a href="/feedback/new">Give More Feedback</a>
+</body>
+</html>

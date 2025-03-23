@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Feedback Overview</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <% if (login) { %>
+        <h1>Admin Login</h1>
+        <% if (error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+        <form action="/admin/login" method="POST">
+            <label>Username:</label>
+            <input type="text" name="username" required>
+            <br>
+            <label>Password:</label>
+            <input type="password" name="password" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    <% } else { %>
+        <h1>All Teachers' Feedback</h1>
+        <% if (feedback.length > 0) { %>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Teacher ID</th>
+                        <th>Student ID</th>
+                        <th>Q1</th>
+                        <th>Q2</th>
+                        <th>Q3</th>
+                        <th>Q4</th>
+                        <th>Q5</th>
+                        <th>Suggestions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% feedback.forEach(fb => { %>
+                        <tr>
+                            <td><%= fb.teacher_id %></td>
+                            <td><%= fb.student_id %></td>
+                            <td><%= fb.q1 %></td>
+                            <td><%= fb.q2 %></td>
+                            <td><%= fb.q3 %></td>
+                            <td><%= fb.q4 %></td>
+                            <td><%= fb.q5 %></td>
+                            <td><%= fb.suggestions %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No feedback available yet.</p>
+        <% } %>
+    <% } %>
+
+</body>
+</html>
